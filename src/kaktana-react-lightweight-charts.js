@@ -188,7 +188,10 @@ class ChartWrapper extends React.Component {
         let chart = this.chart;
         chart.unsubscribeClick(prevProps.onClick);
         chart.unsubscribeCrosshairMove(prevProps.onCrosshairMove);
-        chart.timeScale().unsubscribeVisibleTimeRangeChange(prevProps.onTimeRangeMove);
+        chart.timeScale().unsubscribeVisibleTimeRangeChange &&
+            chart
+                .timeScale()
+                .unsubscribeVisibleTimeRangeChange(prevProps.onTimeRangeMove);
     };
 
     handleEvents = () => {
@@ -198,7 +201,9 @@ class ChartWrapper extends React.Component {
         props.onCrosshairMove &&
             chart.subscribeCrosshairMove(props.onCrosshairMove);
         props.onTimeRangeMove &&
-            chart.timeScale().subscribeVisibleTimeRangeChange(props.onTimeRangeMove);
+            chart
+                .timeScale()
+                .subscribeVisibleTimeRangeChange(props.onTimeRangeMove);
 
         // handle legend dynamical change
         chart.subscribeCrosshairMove(this.handleLegends);
