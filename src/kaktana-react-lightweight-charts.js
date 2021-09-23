@@ -55,7 +55,7 @@ const lightTheme = {
 class ChartWrapper extends React.Component {
     constructor(props) {
         super(props);
-        this.chartDiv = React.createRef();
+        this.chartDiv = props.ref ? ref : React.createRef();
         this.legendDiv = React.createRef();
         this.chart = null;
         this.series = [];

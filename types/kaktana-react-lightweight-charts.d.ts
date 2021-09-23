@@ -23,6 +23,7 @@ declare module "@vistrible/kaktana-react-lightweight-charts" {
         onCrosshairMove?: MouseEventHandler;
         onTimeRangeMove?: TimeRangeChangeEventHandler;
         darkTheme?: boolean;
+        ref?: React.MutableRefObject<any>;
     }
 
     export default class ChartWrapper extends React.Component<Props> {}
